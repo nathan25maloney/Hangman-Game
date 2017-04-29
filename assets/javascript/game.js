@@ -9,6 +9,7 @@
 
 var game = {
 	choices: ["bulbasaur","ivysaur","venusaur","charmander","charmeleon","charizard","squirtle","wartortle","blastoise","caterpie","metapod","butterfree","weedle","kakuna","beedrill","pidgey","pidgeotto","pidgeot","rattata","raticate","spearow","fearow","ekans","arbok","pikachu","raichu","sandshrew","sandslash","nidoran","nidorina","nidoqueen","nidorino","nidoking","clefairy","clefable","vulpix","ninetales","jigglypuff","wigglytuff","zubat","golbat","oddish","gloom","vileplume","paras","parasect","venonat","venomoth","diglett","dugtrio","meowth","persian","psyduck","golduck","mankey","primeape","growlithe","arcanine","poliwag","poliwhirl","poliwrath","abra","kadabra","alakazam","machop","machamp","machoke","bellsprout","weepinbell","victreebel","tentacool","tentacruel","geodude","graveler","golem","ponyta","rapidash","slowpoke","slowbro","magnemite","magneton","doduo","dodrio","seel","dewgong","grimer","muk","shellder","cloyster","gastly","haunter","gengar","onix","drowzee","hypno","krabby","kingler","voltorb","electrode","exeggcute","exeggutor","cubone","marowak","hitmonlee","hitmonchan","lickitung","koffing","weezing","rhyhorn","rhydon","chansey","tangela","kangaskhan","horsea","seadra","goldeen","seaking","staryu","starmie","scyther","jynx","electabuzz","magmar","pinsir","tauros","magikarp","gyarados","lapras","ditto","eevee","vaporeon","jolteon","flareon","porygon","omanyte","omastar","kabuto","kabutops","aerodactyl","snorlax","articuno","zapdos","moltres","dratini","dragonair","dragonite","mewtwo","mew" ],
+		
 	guess: "",
 	isGoodGuess: false,
 	isRepeatGuess: false,
@@ -19,6 +20,7 @@ var game = {
 	computerChoice: "",
 	isStillOn: true,
 	isALetter: true,
+	guessesLeft: 10,
 	
 // creates the computers choice 
 	randomChoice: function() {
@@ -74,10 +76,12 @@ var game = {
 					game.word= [];
 					game.computerChoice= "";
 					game.isStillOn= true;
+					game.guessesLeft= 10;
 					document.onkeyup = function(newgame) {
 					      var letter = String.fromCharCode(newgame.keyCode).toLowerCase();
 
 					      if (letter === "r"){
+					      	document.getElementById("guessesLeft").innerHTML = game.guessesLeft;
 					        game.run();
 					        document.getElementById("userChoice").innerHTML = "______________";
 					      }
@@ -97,10 +101,11 @@ var game = {
 				//add call to function that shows more of the hangman with each bad guess
 				game.badGuess = (game.badGuess+" "+game.guess);
 				document.getElementById("userChoice").innerHTML = game.badGuess;
+				game.guessesLeft = game.guessesLeft -1;
+				document.getElementById("guessesLeft").innerHTML = game.guessesLeft
 				var height = 15 * game.badGuess.length;
 				var width = 9 * game.badGuess.length;
 				if (james && james.style) {
-
 					james.style.height= height +'px';
 					james.style.width = width +'px';
 				}
@@ -113,6 +118,7 @@ var game = {
 
 			if (game.badGuess.length > 19) {
 				game.loses = game.loses +1;
+
 				document.getElementById("Loses").innerHTML = game.loses;
 				document.getElementById("userChoice").innerHTML = "The pokemon was "+game.computerChoice+ "!  Alas, it was caught by team rocket.  Press r to try again";
 				game.guess= "";
@@ -122,9 +128,10 @@ var game = {
 				game.word= [];
 				game.computerChoice= "";
 				game.isStillOn= true;
+				game.guessesLeft= 10;
 				document.onkeyup = function(newgame) {
 				      var letter = String.fromCharCode(newgame.keyCode).toLowerCase();
-
+				      document.getElementById("guessesLeft").innerHTML = game.guessesLeft;
 				      if (letter === "r"){
 				        game.run();
 				        document.getElementById("userChoice").innerHTML = "______________";
