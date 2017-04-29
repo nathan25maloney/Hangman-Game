@@ -1,0 +1,16 @@
+body {
+	background-color: red;
+}
+p {
+	color: black;
+}
+.jumbotron {
+	padding: 0px;
+	background-image: url("../images/banner.jpg");
+}
+.banner {
+	height: 100px;
+    position: relative;
+    width: 296px;
+    left: 35%;
+}

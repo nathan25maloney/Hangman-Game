@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hangman</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="assets/javascript/game.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+	<div class="jumbotron">
+		<img src="assets/images/banner.jpg" alt= "Pokemon banner" class="banner"> 
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 col-md-offset-2">
+				<img src="assets/images/jesseRunning.jpg" width ="180" height = "300" alt="Jesse Running" id="jesse">
+				<img src="assets/images/JamesRunning.jpg" width = "180" height = "300" alt="James Running" id="james">
+			</div>
+			<div class="col-md-3">
+				<h3>Push "r" to run.  Then choose your letters</h3>
+				<p><span id="computerChoice">      ______________ </span></p>
+				<h3>Score Board</h3>
+				<p>Wins = <span id="Wins">  0</span></p>
+				<p>Loses = <span id="Loses">  0</span></p>
+				<p>Letters you've chosen </p>
+				<p><span id="userChoice">  </span></p>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
